@@ -10,18 +10,6 @@
 import Foundation
 import MapKit
 
-
-struct WeatherData : DictionaryRepresentable {
-    
-    public init(rawDict: NSDictionary) throws {
-        
-    }
-    
-    public var dictionary: NSDictionary {
-        fatalError("not needed")
-    }
-}
-
 ///
 /// OpenWeather services API
 ///

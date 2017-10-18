@@ -15,43 +15,18 @@ import Foundation
 /// as missing parameters, or invalid operation etc.
 ///
 struct APIError {
-    var message: String
     var code: Int64
-    var errors: [UnderlyingError]
+    var message: String
 }
 
 extension APIError : DictionaryRepresentable {
     
     public init(rawDict: NSDictionary) throws {
-        message = rawDict.stringValue("error.message")
-        code = rawDict.int64Value("error.code")
-        errors = try rawDict.arrayy("error.errors")
-    }
-    
-    public var dictionary: NSDictionary {
-        fatalError("not implemented")
-    }
-}
-
-extension APIError {
-
-    struct UnderlyingError {
-        var domain: String
-        var reason: String
-        var message: String
-    }
-
-}
-
-extension APIError.UnderlyingError : DictionaryRepresentable {
-
-    init(rawDict: NSDictionary) throws {
-        domain = rawDict.stringValue("domain")
-        reason = rawDict.stringValue("reason")
+        code = rawDict.int64Value("cod")
         message = rawDict.stringValue("message")
     }
     
-    var dictionary: NSDictionary {
+    public var dictionary: NSDictionary {
         fatalError("not implemented")
     }
 }

@@ -150,8 +150,8 @@ extension URLSession {
         var jsonObject: AnyObject?
         var processError: HTTPError?
         
-        let str = String(data: data!, encoding: String.Encoding.utf8)
-        print(str!)
+        //let str = String(data: data!, encoding: String.Encoding.utf8)
+        //print(str!)
         //log.debug("response: \(data?.count ?? 0) bytes")
         
         if let response = response as? HTTPURLResponse {
