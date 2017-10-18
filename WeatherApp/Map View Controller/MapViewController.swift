@@ -15,8 +15,9 @@ class MapViewViewController: UIViewController {
     var locationManager = CLLocationManager()
     
     lazy var tapGestureRecognizer: UITapGestureRecognizer = {
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(hello(sender:)))
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTapDetected(sender:)))
         recognizer.numberOfTapsRequired = 2
+        recognizer.delegate = self
         return recognizer
     }()
     
@@ -26,13 +27,15 @@ class MapViewViewController: UIViewController {
     
     override func loadView() {
         view = MKMapView()
-        mapView.delegate = self
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        view.addGestureRecognizer(tapGestureRecognizer)
+        
+        mapView.addGestureRecognizer(tapGestureRecognizer)
+        mapView.delegate = self
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
@@ -50,9 +53,11 @@ class MapViewViewController: UIViewController {
     
     // MARK: Private Methods
     
-    @objc func hello(sender: UITapGestureRecognizer) {
+    @objc func doubleTapDetected(sender: UITapGestureRecognizer) {
         switch sender.state {
         case .ended:
+            let touchPoint = sender.location(in: mapView)
+            let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
             let vc = PlaceViewController()
             navigationController?.pushViewController(vc, animated: true)
         default:
@@ -63,6 +68,10 @@ class MapViewViewController: UIViewController {
 }
 
 extension MapViewViewController : MKMapViewDelegate {
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        
+    }
     
     public func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: Error) {
         let alert = UIAlertController.okAlert(title: nil, message: "There was an error when locating user")
@@ -83,6 +92,14 @@ extension MapViewViewController : CLLocationManagerDelegate {
         default: break
         }
     }
+}
+
+extension MapViewViewController : UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
 }
 
 extension UIAlertController {
