@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>APIBaseURL</key>
-    <string>http://api.openweathermap.org</string>
+    <string>https://api.openweathermap.org</string>
     <key>APIPrefix</key>
     <string>data</string>
     <key>APIVersion</key>

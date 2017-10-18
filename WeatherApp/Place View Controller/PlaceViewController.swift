@@ -11,20 +11,17 @@ import MapKit
 
 class PlaceViewController: UIViewController {
 
-    let api = API(baseURL: AppInfo.baseURLForAPI, APIPrefix: AppInfo.prefixForAPI, version: AppInfo.versionForAPI, APIKey: AppInfo.appIdForAPI)
     var coordinate: CLLocationCoordinate2D?
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
+
+    private let api = API(baseURL: AppInfo.baseURLForAPI, APIPrefix: AppInfo.prefixForAPI, version: AppInfo.versionForAPI, APIKey: AppInfo.appIdForAPI)
+    private var runningTask: URLSessionTask?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.green
         
         if let coordinate = coordinate {
-            let task = api.getCurrentWeather(by: coordinate, completion: { (data, error) in
+            runningTask = api.getCurrentWeather(by: coordinate, completion: { (data, error) in
                 if let data = data  {
                     print("success \(data)")
                 }
@@ -32,7 +29,19 @@ class PlaceViewController: UIViewController {
                     print("error \(error)")
                 }
             })
-            task.resume()
+            runningTask?.resume()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParentViewController || isBeingDismissed {
+            runningTask?.cancel()
         }
     }
 }
