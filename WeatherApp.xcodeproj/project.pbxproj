@@ -21,6 +21,8 @@
 		42E765631F979D4C00E66707 /* HTTPResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206B8811F9798C90041706C /* HTTPResponseParser.swift */; };
 		42E765641F979D4F00E66707 /* URLRequest+Curl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206B8801F9798C90041706C /* URLRequest+Curl.swift */; };
 		42E7656E1F97A50A00E66707 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E7656D1F97A50A00E66707 /* AppInfo.swift */; };
+		42E765701F97AB7F00E66707 /* PlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42E7656F1F97AB7F00E66707 /* PlaceView.xib */; };
+		42E765721F97AB9400E66707 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E765711F97AB9400E66707 /* PlaceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		4256FB531F977FFD000C68AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4256FB5A1F9782C9000C68AD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		42E7656D1F97A50A00E66707 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		42E7656F1F97AB7F00E66707 /* PlaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceView.xib; sourceTree = "<group>"; };
+		42E765711F97AB9400E66707 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				4256FB491F977FFD000C68AD /* PlaceViewController.swift */,
+				42E765711F97AB9400E66707 /* PlaceView.swift */,
+				42E7656F1F97AB7F00E66707 /* PlaceView.xib */,
 			);
 			path = "Place View Controller";
 			sourceTree = "<group>";
@@ -184,6 +190,7 @@
 			files = (
 				4256FB521F977FFD000C68AD /* LaunchScreen.storyboard in Resources */,
 				4256FB4F1F977FFD000C68AD /* Assets.xcassets in Resources */,
+				42E765701F97AB7F00E66707 /* PlaceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +206,7 @@
 				42E765601F979D4500E66707 /* NSDictionary+Parsing.swift in Sources */,
 				42E765621F979D4A00E66707 /* URL+Operators.swift in Sources */,
 				42E765611F979D4800E66707 /* URLSession.swift in Sources */,
+				42E765721F97AB9400E66707 /* PlaceView.swift in Sources */,
 				42E7656E1F97A50A00E66707 /* AppInfo.swift in Sources */,
 				4256FB5B1F9782C9000C68AD /* MapViewController.swift in Sources */,
 				42E7655D1F979D3C00E66707 /* API.swift in Sources */,
