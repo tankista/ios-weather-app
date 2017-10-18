@@ -8,11 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PlaceViewController: UIViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        view.backgroundColor = UIColor.green
     }
 
     override func didReceiveMemoryWarning() {
