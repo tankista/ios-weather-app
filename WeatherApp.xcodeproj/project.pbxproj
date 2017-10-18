@@ -20,6 +20,7 @@
 		42E765621F979D4A00E66707 /* URL+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206B8821F9798C90041706C /* URL+Operators.swift */; };
 		42E765631F979D4C00E66707 /* HTTPResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206B8811F9798C90041706C /* HTTPResponseParser.swift */; };
 		42E765641F979D4F00E66707 /* URLRequest+Curl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206B8801F9798C90041706C /* URLRequest+Curl.swift */; };
+		42E7656E1F97A50A00E66707 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E7656D1F97A50A00E66707 /* AppInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4256FB511F977FFD000C68AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4256FB531F977FFD000C68AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4256FB5A1F9782C9000C68AD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		42E7656D1F97A50A00E66707 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				4256FB471F977FFC000C68AD /* AppDelegate.swift */,
+				42E7656D1F97A50A00E66707 /* AppInfo.swift */,
 				4256FB5C1F9782D5000C68AD /* Map View Controller */,
 				4256FB5D1F9782FA000C68AD /* Place View Controller */,
 				4206B8861F9799B50041706C /* OpenWeatherAPI */,
@@ -196,6 +199,7 @@
 				42E765601F979D4500E66707 /* NSDictionary+Parsing.swift in Sources */,
 				42E765621F979D4A00E66707 /* URL+Operators.swift in Sources */,
 				42E765611F979D4800E66707 /* URLSession.swift in Sources */,
+				42E7656E1F97A50A00E66707 /* AppInfo.swift in Sources */,
 				4256FB5B1F9782C9000C68AD /* MapViewController.swift in Sources */,
 				42E7655D1F979D3C00E66707 /* API.swift in Sources */,
 				42E7655E1F979D3F00E66707 /* APIError.swift in Sources */,

@@ -11,6 +11,7 @@ import MapKit
 
 class PlaceViewController: UIViewController {
 
+    let api = API(baseURL: AppInfo.baseURLForAPI, APIPrefix: AppInfo.prefixForAPI, version: AppInfo.versionForAPI, APIKey: AppInfo.appIdForAPI)
     var coordinate: CLLocationCoordinate2D?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,8 +24,6 @@ class PlaceViewController: UIViewController {
         view.backgroundColor = UIColor.green
         
         if let coordinate = coordinate {
-            let url = URL(string: "https://api.openweathermap.org")!
-            let api = API(baseURL: url, APIPrefix: "data", version: "2.5", APIKey: "5020fc146ad33359b3bcf17b0bf007c2")
             let task = api.getCurrentWeather(by: coordinate, completion: { (data, error) in
                 if let data = data  {
                     print("success \(data)")
@@ -36,6 +35,5 @@ class PlaceViewController: UIViewController {
             task.resume()
         }
     }
-
 }
 
