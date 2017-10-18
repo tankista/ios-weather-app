@@ -57,8 +57,8 @@ class MapViewViewController: UIViewController {
         switch sender.state {
         case .ended:
             let touchPoint = sender.location(in: mapView)
-            let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
             let vc = PlaceViewController()
+            vc.coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
             navigationController?.pushViewController(vc, animated: true)
         default:
             break
