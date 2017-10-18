@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let vc = ViewController()
+        let vc = MapViewViewController()
         let nc = UINavigationController(rootViewController: vc)
         
         window?.rootViewController = nc
