@@ -17,3 +17,22 @@ final class PlaceView : UIView {
     @IBOutlet weak var visiblityLabel: UILabel!
     @IBOutlet weak var windLabel: UILabel!
 }
+
+extension PlaceView {
+    func reload(with data: WeatherData) {
+        
+        cityLabel.text = data.name
+        
+        let formatter = MeasurementFormatter()
+        let measurement = Measurement(value: data.main.temp, unit: UnitTemperature.kelvin)
+    
+        temperatureLabel.text = formatter.string(from: measurement)
+        
+        //did not have time to user proper formatters here
+        descriptionLabel.text = data.weather.first?.desc
+        pressureLabel.text = String(describing: data.main.pressure)
+        himidityLabel.text = String(describing: data.main.humidity)
+        visiblityLabel.text = String(describing: data.visibility)
+        windLabel.text = "\(data.wind.speed)/\(data.wind.deg)°"
+    }
+}

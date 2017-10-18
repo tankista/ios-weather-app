@@ -47,13 +47,13 @@ extension WeatherData {
         
         var id: Int64
         var main: String
-        var description: String?
+        var desc: String?
         var icon: String?
         
         public init(rawDict: NSDictionary) throws {
             id = rawDict.int64Value("id")
             main = rawDict.stringValue("main")
-            description = rawDict.string("description")
+            desc = rawDict.string("description")
             icon = rawDict.string("icon")
         }
         

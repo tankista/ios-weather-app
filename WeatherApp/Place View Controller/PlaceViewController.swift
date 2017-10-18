@@ -16,17 +16,29 @@ class PlaceViewController: UIViewController {
     private let api = API(baseURL: AppInfo.baseURLForAPI, APIPrefix: AppInfo.prefixForAPI, version: AppInfo.versionForAPI, APIKey: AppInfo.appIdForAPI)
     private var runningTask: URLSessionTask?
     
+    var placeView: PlaceView {
+        return view as! PlaceView
+    }
+    
+    override func loadView() {
+        view = UINib(nibName: "PlaceView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.green
         
         if let coordinate = coordinate {
-            runningTask = api.getCurrentWeather(by: coordinate, completion: { (data, error) in
+            runningTask = api.getCurrentWeather(by: coordinate, completion: { [weak self] (data, error) in
                 if let data = data  {
-                    print("success \(data)")
+                    self?.placeView.reload(with: data)
                 }
-                else if let error = error {
-                    print("error \(error)")
+                else if let error = error?.api {
+                    let alert = UIAlertController.okAlert(title: "Loading Failed", message: error.message)
+                    self?.present(alert, animated: true, completion: nil)
+                }
+                else if let error = error?.http {
+                    let alert = UIAlertController.okAlert(title: "Loading Failed", message: error.localizedDescription)
+                    self?.present(alert, animated: true, completion: nil)
                 }
             })
             runningTask?.resume()
